@@ -1,6 +1,9 @@
 """imported requests module"""
 import requests
 
+"""imported datetime module as dt"""
+import datetime as dt
+
 """contants"""
 USERNAME = "anshusinha20"
 TOKEN = "ds2d233kjh44jwkjb23b3kjd2"
@@ -40,12 +43,15 @@ headers = {
 # response = requests.post(url=graphEndpoint, json=graphParameters, headers=headers)
 # print(response.text)
 
+"""variable to hold dates"""
+today = dt.datetime.today().strftime("%Y%m%d")
+
 """variable to store the data creation endpoint"""
 pixelDataCreationEndpoint = f"{pixelaEndpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 """dictionary to hold the data creation parameters"""
 pixelDataCreationParameters = {
-    "date": "20230415",
+    "date": today,
     "quantity": "10.5",
 }
 
