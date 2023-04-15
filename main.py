@@ -92,12 +92,12 @@ deleteEndpoint = f"{pixelaEndpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today}"
 # -------------------- WORKING WITH DATA ENTRIES--------------------
 """function to work with data entry"""
 def workWithData():
-    userInput = int(input("Choose from below options:"))
-    print("""
-    1 - Make entry
-    2 - Update entry
-    3 - Delete entry 
-    """)
+    userInput = int(input("""
+    Choose from below options:
+        1 - Make entry
+        2 - Update entry
+        3 - Delete entry 
+    """))
     if userInput == 1:
         response = requests.post(url=pixelDataCreationEndpoint, json=pixelDataCreationParameters, headers=headers)
         print(response.text)
