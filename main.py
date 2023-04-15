@@ -4,6 +4,7 @@ import requests
 """contants"""
 USERNAME = "anshusinha20"
 TOKEN = "ds2d233kjh44jwkjb23b3kjd2"
+GRAPH_ID = "graph1"
 
 """variable to store endpoint"""
 pixelaEndpoint = "https://pixe.la/v1/users"
@@ -25,7 +26,7 @@ graphEndpoint = f"{pixelaEndpoint}/{USERNAME}/graphs"
 
 """dictionary to hold the graph parameters"""
 graphParameters = {
-    "id": "graph1",
+    "id": GRAPH_ID,
     "name": "Cycling Graph",
     "unit": "Km",
     "type": "float",
@@ -36,5 +37,18 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
-response = requests.post(url=graphEndpoint, json=graphParameters, headers=headers)
+# response = requests.post(url=graphEndpoint, json=graphParameters, headers=headers)
+# print(response.text)
+
+"""variable to store the data creation endpoint"""
+pixelDataCreationEndpoint = f"{pixelaEndpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+
+"""dictionary to hold the data creation parameters"""
+pixelDataCreationParameters = {
+    "date": "20230415",
+    "quantity": "10.5",
+}
+
+response = requests.post(url=pixelDataCreationEndpoint, json=pixelDataCreationParameters, headers=headers)
 print(response.text)
+
